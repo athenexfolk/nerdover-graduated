@@ -1,0 +1,27 @@
+.w-cal {
+  width: calc(100% + 64px);
+}
+
+.h-cal {
+  height: calc(100% + 64px);
+}
+
+.line {
+  @apply absolute from-transparent via-zinc-900 to-transparent;
+
+  &.line-top {
+    @apply w-cal top-0 left-1/2 -translate-x-1/2 h-px bg-gradient-to-r;
+  }
+
+  &.line-bottom {
+    @apply w-cal bottom-0 left-1/2 -translate-x-1/2 h-px bg-gradient-to-r;
+  }
+
+  &.line-left {
+    @apply h-cal left-0 top-1/2 -translate-y-1/2 w-px bg-gradient-to-b;
+  }
+
+  &.line-right {
+    @apply h-cal right-0 top-1/2 -translate-y-1/2 w-px bg-gradient-to-b;
+  }
+}

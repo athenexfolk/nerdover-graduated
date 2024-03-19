@@ -1,0 +1,49 @@
+<div class="min-h-dvh flex flex-col lg:grid lg:grid-cols-2 bg-zinc-50">
+  <div
+    class="p-8 flex flex-col gap-8 justify-center items-center w-full max-w-sm mx-auto grow"
+  >
+    <div class="flex flex-col items-center gap-4">
+      <img src="assets/images/logo.svg" alt="logo" class="size-32 lg:size-40" />
+      <h1 class="text-3xl lg:text-6xl font-bold">เนิร์ดโอเวอร์</h1>
+      <p class="text-lg lg:text-xl xl:text-2xl">แพลตฟอร์มสำหรับฉันคนเดียว</p>
+    </div>
+    <button
+      [routerLink]="['/learn']"
+      class="lg:text-lg bg-zinc-900 hover:bg-zinc-700 text-white font-semibold rounded-xl px-4 py-2 w-full"
+    >
+      เข้าสู่หน้าบทเรียน
+    </button>
+  </div>
+  <div class="bg-zinc-50 flex flex-col gap-4 relative">
+    <div class="hidden lg:flex grow flex-col justify-center items-center">
+      <div class="flex flex-col gap-4 max-w-sm mx-auto">
+        <div class="p-8 relative">
+          <p class="text-2xl">
+            The best preparation for tomorrow is doing your best today.
+          </p>
+          <div class="line line-top"></div>
+          <div class="line line-bottom"></div>
+          <div class="line line-left"></div>
+          <div class="line line-right"></div>
+        </div>
+      </div>
+    </div>
+    <img
+      src="assets/images/bg-landing.svg"
+      class="self-end w-full object-contain max-w-screen-sm mx-auto"
+      alt="landing image"
+    />
+  </div>
+</div>
+<div class="min-h-dvh bg-zinc-900 p-8 flex flex-col gap-4">
+  <h2 class="text-white font-bold text-2xl">บทเรียนแนะนำ</h2>
+  <div
+    class="grow grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
+  >
+    <div
+      class="bg-zinc-50 h-full rounded-xl min-h-40 flex justify-center items-center"
+    >
+      Coming soon
+    </div>
+  </div>
+</div>

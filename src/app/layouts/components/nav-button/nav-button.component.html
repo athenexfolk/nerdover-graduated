@@ -1,0 +1,11 @@
+<button
+  [routerLink]="to"
+  [routerLinkActive]="['active']"
+  [routerLinkActiveOptions]="{exact}"
+  class="group flex flex-col items-center gap-1"
+>
+  <span class="px-4 py-1 rounded-full group-hover:bg-zinc-100 msr large">
+    {{ icon }}
+  </span>
+  <span class="text-sm">{{ label }}</span>
+</button>

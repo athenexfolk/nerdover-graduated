@@ -1,0 +1,34 @@
+<div class="h-dvh sticky top-0 w-72 border-e p-4 overflow-auto bg-zinc-50">
+  <nav *ngIf="ls.categoryMaps() as maps; else loading">
+    <ul class="flex flex-col gap-4">
+      <li *ngFor="let category of maps">
+        <p class="text-lg font-semibold mb-4">{{ category.label }}</p>
+        <ul
+          *ngIf="category.lessons.length; else emptyCategory"
+          class="flex flex-col"
+        >
+          <li
+            role="button"
+            *ngFor="let lesson of category.lessons"
+            class="border-s text-zinc-500 hover:text-zinc-900 px-4 py-2 hover:border-zinc-500"
+            [routerLink]="['/learn', category.key, lesson.key]"
+            [routerLinkActive]="[
+              'border-s-4',
+              'text-zinc-700',
+              'border-zinc-700',
+              'hover:text-zinc-700'
+            ]"
+            (click)="sendClick()"
+          >
+            {{ lesson.label }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<ng-template #loading> Loading... </ng-template>
+<ng-template #emptyCategory>
+  <p class="text-center text-zinc-300">ยังไม่มีบทเรียนที่นี่</p>
+</ng-template>

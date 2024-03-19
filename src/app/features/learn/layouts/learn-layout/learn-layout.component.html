@@ -1,0 +1,12 @@
+<div class="flex flex-col lg:flex-row">
+  <MobileMenuBar class="lg:hidden sticky top-0 z-10" />
+  <div class="hidden lg:flex">
+    <NavigationBar />
+    <LearnMenuBar />
+  </div>
+  <div class="grow">
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

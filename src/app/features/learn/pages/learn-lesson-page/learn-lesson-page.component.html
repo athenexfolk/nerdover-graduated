@@ -1,0 +1,27 @@
+<ng-container *ngIf="lesson()">
+  <div class="flex gap-4">
+    <div class="max-w-screen-md w-full p-4 mx-auto space-y-8">
+      <div class="h-80 overflow-hidden rounded-xl">
+        <img
+          [src]="
+            lesson()?.cover
+              ? '/upload/' + lesson()?.cover
+              : 'assets/images/default.png'
+          "
+          alt=""
+          class="object-cover object-center w-full h-80"
+        />
+      </div>
+      <div class="prose">
+        <h1 @fade>{{ lesson()?.label }}</h1>
+        <markdown
+          [data]="lesson()?.content"
+          katex
+          class="prose prose-sm md:prose-base prose-zinc prose-img:max-w-full prose-img:mx-auto prose-img:my-8"
+          @fade
+          #md
+        ></markdown>
+      </div>
+    </div>
+  </div>
+</ng-container>

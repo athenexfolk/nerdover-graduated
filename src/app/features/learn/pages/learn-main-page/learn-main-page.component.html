@@ -1,0 +1,51 @@
+<div class="h-cal transition-all relative p-4">
+  <div
+    class="absolute flex flex-col gap-2 justify-center items-center transition-all duration-300 mx-auto lg:mt-0"
+    [ngClass]="
+      isSearchFocus
+        ? 'top-4 left-4 right-4 translate-y-0 w-cal'
+        : 'top-1/2 left-0 right-0 -translate-y-1/2 w-60'
+    "
+  >
+    <p *ngIf="!isSearchFocus" class="text-lg font-bold" @fade>
+      เลือกบทเรียนจากเมนูได้เลย
+    </p>
+    <p *ngIf="!isSearchFocus" @fade>หรือ ค้นหา</p>
+    <div
+      class="px-4 py-2 rounded-xl bg-zinc-100 flex items-center gap-2 w-full relative"
+    >
+      <span class="msr">search</span>
+      <input
+        type="text"
+        class="bg-transparent focus:outline-0 focus:ring-0 grow"
+        (focus)="enterSearchMode()"
+        [(ngModel)]="searchText"
+        (input)="search()"
+        placeholder="ค้นหาบทเรียน"
+      />
+      <!-- <select [(ngModel)]="searchFilter" class="bg-transparent">
+        <option value="cat">หมวดหมู่</option>
+        <option value="les" selected>บทเรียน</option>
+      </select> -->
+      <div
+        *ngIf="isSearchFocus && searchText.length"
+        class="absolute top-12 left-0 w-full bg-zinc-50 rounded-xl shadow p-4"
+      >
+        <ul *ngIf="searchFilter === 'les'">
+          <ng-container *ngIf="searchedLessons().length; else empty">
+            <li
+              role="button"
+              *ngFor="let lesson of searchedLessons()"
+              [routerLink]="['/learn', lesson.parentKey, lesson.key]"
+              class="text-zinc-500 hover:text-zinc-900 px-2 py-1"
+            >
+              {{ lesson.label }}
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #empty><p class="text-center">ไม่พบผลลัพธ์</p> </ng-template>
